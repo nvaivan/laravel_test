@@ -42,6 +42,9 @@ Need to grant the web server write permissions to the storage and public directo
 
 http://127.0.0.1:8000
 
+### Example my test:
+https://gyazo.com/f2e7086f3d687c8c51a5064f2910ed0a
+
 ## Authors
 
 * **Van Doan** - (https://github.com/nvaivan)
