@@ -36,6 +36,8 @@ Run the command to build .js file(s) for your project when changing reactjs sour
 npm run dev 
 ```
 
+Need to grant the web server write permissions to the storage and public directories
+
 ### Running the tests
 
 http://127.0.0.1:8000
