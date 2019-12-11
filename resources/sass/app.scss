@@ -1,0 +1,121 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.nav {
+  width: 100%;
+  float: left;
+  padding: 10px 10px 10px 5px;
+}
+.search-bar {
+  width: 100%;
+  clear: both;
+  float: left;
+  padding: 10px 20px 15px 20px;
+  border-bottom: 1px solid #D7D9E0;
+  
+}
+.upload-bar {
+  width: 100%;
+  clear: both;
+  float: left;
+  padding: 14px 20px 13px 20px;
+  border-bottom: 1px solid #D7D9E0;
+  input[type='file'] {
+    display: none;
+  }
+}
+.upload-bar-title {
+  text-transform: uppercase;
+  float: left;
+  font-weight: bold;
+}
+.upload-bar-text {
+    font-size: 0.9rem;
+    line-height: 13px;
+}
+.upload-bar-btn {
+  float: right;
+  cursor: pointer;
+}
+.nav-item {
+  position: relative;
+  border-radius: 2px;
+  box-sizing: border-box;
+  list-style: none;
+  width: 100%;
+  padding: 14px 20px 13px 20px;
+  border: 1px solid #f3f3f3;
+  text-decoration: none !important;
+  &:before {
+    display: none;
+    content: " ";
+    width: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #4077E4;
+    height: 100%;
+  }
+  &:hover, &.actived {
+    background: white;
+    box-shadow: 0px 3px 6px rgba(57, 65, 102, 0.05);
+    border: 1px solid #E8EAEF;
+    &:before {
+      display: block;
+    }
+  }
+}
+.nav-item__heading, .nav-item__uploaded-by {
+  line-height: normal;
+  color: #394166;
+}
+.nav-item__heading {
+  font-size: 14px;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+.nav-item__uploaded-by {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.header {
+  background: #4077E4;
+  width: 100%;
+  padding: 10px 20px 10px 20px;
+}
+.header_title {
+  color: white;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: bold;
+}
+.fa-upload {
+  color: #9CA0B2;
+  font-size: 12px;
+  line-height: 14px;
+  margin-left: 5px;
+}
+
+.top-left{
+  border-bottom: 1px solid#D7D9E0;
+  padding: 14px 20px 13px 20px;
+  background: #f3f3f3;
+  min-height: 50px;
+}
+.top-left a {
+  text-transform: uppercase;
+  float: left;
+  font-weight: bold;
+  
+}
