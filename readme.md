@@ -51,3 +51,8 @@ And I can't get your font, because that is font pro. I used a free font.
 ## Authors
 
 * **Van Doan** - (https://github.com/nvaivan)
+
+
+## UPDATE SEARCH FUNCTION
+I added search function, you can search text in document content.
+
