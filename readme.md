@@ -16,17 +16,23 @@ Modify .env file to make proper configuration of your database
 
 ### Installing
 
-Migrate database
+Make sure composer has been installed on your environment already (otherwise, follow up here https://getcomposer.org/download/)
+
+1. Run command to download all necessary dependencies:
+
+ composer update/composer install
+
+2. Migrate database
 ```
 $ php artisan migrate
 ```
 
-Run the command to install all the dependece packages necessary for our project
+3. Run the command to install all the dependece packages necessary for our project
 ```
 npm install
 ```
 
-Run the command to start Laravel server
+4. Run the command to start Laravel server
 ```
 php artisan serve
 ```
