@@ -20,6 +20,17 @@ export class FileReaderService extends BaseService {
       })
   }
 
+  searchFileReader(data) {    
+    return super.post(DocumentUrl.Fetch + 'search', data)
+      .then((response) => {
+       return response
+      })
+      .catch((error) => {
+        console.log(error);
+        return Promise.reject(error)
+      })
+  }
+
   fetchDetail(param) {
     return super.select(DocumentUrl.Fetch + param)
       .then((response) => {

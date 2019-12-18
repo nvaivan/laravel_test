@@ -1,22 +1,31 @@
 import React from 'react';
 
-const SearchBar = ({onChangeLogin}) => {
-  const openUpload = () => {
-    document.getElementById('upload').click();
-    return false;
-  }
-  const handleChange = (event) => {
-    const file = event.target.files[0];
-    onChangeFile(file);
-  }
-  return (
-    <div class="search-bar">
-        <form >
-            <span> Search: </span>
-            <input type="text" name="search" className="upload-bar-iput" /> &nbsp;<i class="fas fa-search"></i>
-        </form>
+const SearchBar = ({searchFileReader}) => {
+  
+    const openUpload = () => {
         
-    </div>
+        const search = document.getElementById('search').value ;
+        console.log(search);
+        searchFileReader(search);
+      }
+
+    const handleChange = (event) => {
+
+        const search = event.target.value;
+        
+        if (event.key === 'Enter') {
+            console.log(search);
+            searchFileReader(search);
+                    }
+        
+    }
+    return (
+        <div class="search-bar">
+            <span> Search: </span>
+            <input type="text" name="search" id="search" onKeyPress={handleChange} className="upload-bar-iput" /> &nbsp;
+            <i class="fas fa-search" id="btn-search" onClick={openUpload}></i>
+            
+        </div>
   );
 }
 

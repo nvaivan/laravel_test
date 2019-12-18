@@ -5,25 +5,42 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
+
+use Illuminate\Support\Facades\Auth;
+
 
 use App\Document;
 use App\User;
 
+use DB;
+
 class DocumentController extends Controller
 {
+
+    
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function index()
+    public function index(Request $request)
     {
-        $documents = Document::all();
         
+        
+        if(Input::has('search')) {
+
+            $documents = Document::where('content', 'LIKE', "%". Input::get('search') ."%")->get();
+            
+        } 
+        else {
+            $documents = Document::all();
+        }
         $lists = [];
 
         if(count($documents)>0){
             foreach($documents as $file){
+                
                 $list_doc["id"] = $file->id;
                 $user = User::find($file->userId);
                 $list_doc["uploaded_by"] = isset($user->name) ? $user->name: "Admin";
@@ -31,8 +48,7 @@ class DocumentController extends Controller
             }
         }
         
-        return response()
-            ->json($lists);
+        return response()->json($lists);
     }
 
     
@@ -44,7 +60,8 @@ class DocumentController extends Controller
         if ($this->middleware('auth'))
         {
             //return response()->json(['message', "Please login/ register to upload file"]);
-            $user = \Auth::user();
+            $user = Auth::user();
+          
             if( $user)
                 $userId = $user->id;
         }

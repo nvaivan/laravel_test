@@ -40,7 +40,19 @@ export const fileReaderReducer = (state = initialFileReaderState, action) => {
     case FileReaderTypes.UPLOAD_FILE.FAILURE:
       return { ...state, activityStatus: ActivityStatus.Loaded,
         error: action.payload }
+    case FileReaderTypes.SEARCH_FILE_READER.LOADING:
+      return { ...state,
+        activityStatus: ActivityStatus.Loading,
+        error: null } 
+    case FileReaderTypes.SEARCH_FILE_READER.SUCCESS:
+      return { ...state,
+        activityStatus: ActivityStatus.Loaded,
+        error: null }
+    case FileReaderTypes.SEARCH_FILE_READER.FAILURE:
+      return { ...state, activityStatus: ActivityStatus.Loaded,
+        error: action.payload }       
     default:
       return state;
+      
   }
 }

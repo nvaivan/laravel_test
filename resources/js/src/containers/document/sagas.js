@@ -63,3 +63,19 @@ export function* uploadFile(action) {
 export function* watchUploadFile() {
   yield takeLatest(FileReaderTypes.UPLOAD_FILE.ROOT, uploadFile)
 }
+
+export function* searchFileReader(action) {
+  try {
+    yield put(fileDocumentActions.loadingActivity(ActivityStatus.Loading,
+      FileReaderTypes.SEARCH_FILE_READER.LOADING))
+      
+    const result = yield service.searchFileReader(action.payload);
+    yield put(fileDocumentActions.receivedFileReader(result))
+  } catch(ex) {
+    console.log('error');
+    yield put(fileDocumentActions.failuresearchFileReader());
+  }
+}
+export function* watchsearchFileReader() {
+  yield takeLatest(FileReaderTypes.SEARCH_FILE_READER.ROOT, searchFileReader)
+}

@@ -8,6 +8,7 @@ import SearchBar from './../../components/raws/search-bar';
 import UploadBar from './../../components/raws/upload-bar';
 import FileDocumentDetail from './detail';
 import HomePage from './home';
+import LoginPage from './login';
 import { fileDocumentActions } from './actions';
 import FullScreenLoading from '../../components/shared/loading/full-screen';
 import ActivityStatus from '../../common/enum/activity';
@@ -40,7 +41,7 @@ const styles = theme => ({
   },
 });
 
-const _FileDocument = ({classes, fetchFileReader, uploadFile, fileReaderStore, ...other}) => {
+const _FileDocument = ({classes, fetchFileReader, uploadFile, searchFileReader, fileReaderStore, ...other}) => {
   const handleUploadFile = (file) => {
     if (file) {
       const data = new FormData();
@@ -48,6 +49,15 @@ const _FileDocument = ({classes, fetchFileReader, uploadFile, fileReaderStore, .
       uploadFile(data);
     }
   }
+
+  const handleSearchFile = (search) => {
+    if (search) {
+      const data = new FormData();      
+      data.append('search', search);      
+      searchFileReader(data);
+    }
+  }
+
   useEffect(() => {
     fetchFileReader();
   }, []);
@@ -61,7 +71,7 @@ const _FileDocument = ({classes, fetchFileReader, uploadFile, fileReaderStore, .
     <div className={classes.root}>
       {fileReaderStore.activityStatus == ActivityStatus.Loading && <FullScreenLoading />}
       <div className={classes.navBar}>
-            <SearchBar onChangeLogin={handleUploadFile}/>
+            <SearchBar searchFileReader={handleSearchFile}/>
             <UploadBar onChangeFile={handleUploadFile}/>
             <Navigators items={fileReaderStore.fileReaders} />
       </div>
@@ -69,6 +79,7 @@ const _FileDocument = ({classes, fetchFileReader, uploadFile, fileReaderStore, .
         <Switch>
           <Route exact path='/' component={HomePage}/>
           <Route path='/:documentId' render={(props) => <FileDocumentDetail {...props} />}/>
+          
         </Switch>
       </div>
     </div>
@@ -84,6 +95,7 @@ const mapStateToProps = (rootReducer) => {
 const mapDispatchToProps = {
   fetchFileReader: fileDocumentActions.fetchFileReader,
   uploadFile: fileDocumentActions.uploadFile,
+  searchFileReader: fileDocumentActions.searchFileReader,
 }
 const FileDocument = connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(_FileDocument));
 export default FileDocument;

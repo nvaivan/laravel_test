@@ -13,6 +13,16 @@ export class FileDocumentActions extends RootAction {
     return { type: FileReaderTypes.FETCH_FILE_READER.FAILURE, payload }
   }
 
+  searchFileReader(param, resolve, reject) {
+    return { type: FileReaderTypes.SEARCH_FILE_READER.ROOT, payload: param, meta: { resolve, reject } }
+  }
+  receivedsearchFileReader(payload) {
+    return { type: FileReaderTypes.SEARCH_FILE_READER.SUCCESS, payload }
+  }
+  failuresearchFileReader(payload) {
+    return { type: FileReaderTypes.SEARCH_FILE_READER.FAILURE, payload }
+  }
+
   fetchDetail(param, resolve, reject) {
     return { type: FileReaderTypes.FETCH_DETAIL.ROOT, payload: param, meta: { resolve, reject } }
   }
