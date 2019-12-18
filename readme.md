@@ -20,7 +20,7 @@ Make sure composer has been installed on your environment already (otherwise, fo
 
 1. Run command to download all necessary dependencies:
 
- composer update/composer install
+ ```composer update/composer install```
 
 2. Migrate database
 ```
