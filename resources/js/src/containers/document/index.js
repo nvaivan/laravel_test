@@ -8,7 +8,7 @@ import SearchBar from './../../components/raws/search-bar';
 import UploadBar from './../../components/raws/upload-bar';
 import FileDocumentDetail from './detail';
 import HomePage from './home';
-import LoginPage from './login';
+
 import { fileDocumentActions } from './actions';
 import FullScreenLoading from '../../components/shared/loading/full-screen';
 import ActivityStatus from '../../common/enum/activity';
